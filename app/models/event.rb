@@ -1,5 +1,8 @@
 class Event < ApplicationRecord
 
+  STATUS = ["draft", "public", "private"]
+  validates_inclusion_of :status, :in => STATUS
+
  validates_presence_of :name, :friendly_id                      #在name生效前,需执行friendly_id
 
  validates_uniqueness_of :friendly_id                          #friendly_id 必须保持唯一
