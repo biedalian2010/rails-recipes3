@@ -11,5 +11,6 @@ class CreateProfiles < ActiveRecord::Migration[5.0]
       t.text :specially
       t.timestamps
     end
+    rename_column(:profiles, :specialty, :specially )
   end
 end
