@@ -60,12 +60,13 @@
     stop: function(e, ui){    //当拖拉结束是,会调用这个方法
       ui.item.children('td').effect('highlight', {}, 1000)
     },
+
     update: function(e, ui) { //当拖拉结束并且DOM 上的位置变更时,,会调用这个方法
       reorder_url = ui.item.data('reorder-url')
       position = ui.item.index()  //取得顺序
       $.ajax({
         type: 'POST',
-        url: reorder_url,
+         url: reorder_url,
         dataType: 'json',
         data: { position: position }
       })
