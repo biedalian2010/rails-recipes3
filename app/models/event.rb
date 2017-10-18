@@ -1,5 +1,7 @@
 class Event < ApplicationRecord
 
+  has_many :registrations, :dependent => :destroy 
+
   include RankedModel
   ranks :row_order
 
