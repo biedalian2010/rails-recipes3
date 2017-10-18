@@ -27,7 +27,7 @@ class RegistrationsController < ApplicationController
   end
 
   def step2_update
-    @registration = @event.ergistrations.find_by_uuid(params[:id])
+    @registration = @event.registrations.find_by_uuid(params[:id])
 
     if @registration.update(registration_params)
       redirect_to step3_event_registration_path(@event, @registration)
@@ -36,7 +36,23 @@ class RegistrationsController < ApplicationController
     end
   end
 
-  
+  def step3
+    @registration = @event.registrations.find_by_uuid(params[:id])
+  end
+
+  def step3_update
+    @registration = @event.registrations.find_by_uuid(params[:id])
+    @registration.status = "confirmed"
+
+    if @registration.update(registration_params)
+      flash[:nitice] = "报名成功"
+      redirect_to event_registration_path(@event, @registration)
+    else
+      render "step3"
+    end
+  end
+
+
 
   protected
 
