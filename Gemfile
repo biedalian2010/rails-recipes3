@@ -40,6 +40,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'ckeditor'
 gem 'ranked-model'
 gem 'jquery-ui-rails'
+gem 'kaminari', :git => 'https://github.com/kaminari/kaminari'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
